@@ -1,0 +1,11 @@
+apiVersion: serving.knative.dev/v1alpha1 # Current version of Knative
+kind: Service
+metadata:
+  name: hello # The name of the app
+  namespace: default # The namespace the app will use
+spec:
+  template:
+    spec:
+      serviceAccountName: build-bot
+      containers:
+        - image: docker.io/valitonjenkins/knative-test-app:v0.0.3 # The URL to the image of the app
